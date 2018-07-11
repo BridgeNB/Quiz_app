@@ -1,0 +1,224 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'roboto', sans-serif;
+  background-color: #ffffff;
+}
+
+/* clearfix */
+
+header::before, header::after {
+  display: table;
+  content: '';
+}
+
+header::after {
+  clear: both;
+}
+
+/* general */
+
+button {
+  border-radius: 1vh;
+}
+
+/* header */
+
+.logo {
+  width: 150px;
+  height: 150px;
+}
+
+header ul li {
+  display: inline;
+  margin-right: 0.5vw;
+  list-style: none;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.score {
+  color: red;
+}
+
+header ul {
+  text-align: right;
+  margin-top: 50px;
+  padding-right: 10px;
+}
+
+/* welcome page */
+
+.welcome_page {
+  margin: 0 auto;
+  width: 50%;
+  margin-top: 20vh;
+  border: 2px dashed black;
+}
+
+.welcome_page h1 {
+  text-align: center;
+  font-size: 4vw;
+}
+
+.welcome_page button {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  height: 8vh;
+  padding: 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 2vw;
+  border: 2px solid black;
+}
+
+/* question form */
+
+main div {
+  margin: 0 auto;
+}
+
+.question_form {
+  display: none;
+  width: 60%;
+  margin-top: 20vh;
+  border: 2px dashed black;
+}
+
+form {
+  width: 100%;
+}
+
+div[class^=question-] {
+  padding: 5vh;
+}
+
+div[class^=question-] h2 {
+  text-align: center;
+}
+
+fieldset {
+  border: none;
+}
+
+fieldset label {
+  padding: 2vh 0;
+  display: flex;
+  border-bottom: 1px dashed black;
+}
+
+label:hover, label:focus {
+  background-color: black;
+  color: white;
+}
+
+label span {
+  padding-left: 10px;
+}
+
+input {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  outline: none;
+  position: relative;
+}
+
+input[type=radio] {
+  flex: 0 0 auto;
+  margin-right: 1vw;
+}
+
+div[class^=question-] button {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  height: 8vh;
+  padding: 1vh;
+  margin-top: 5vh;
+  margin-bottom: 2.5vh;
+  border: 2px solid black;
+  font-weight: bold;
+  font-size: 2vw;
+}
+
+/* correct and wrong page */
+
+.question_result {
+  text-align: center;
+}
+
+.question_result h4 {
+  margin-bottom: 0;
+}
+
+.question_result p {
+  background-color: #F0FFFF;
+  border-radius: 1rem;
+  width: 80%;
+  margin: 0 auto;
+  height: 10vh;
+  line-height: 10vh;
+  font-weight: bold;
+}
+
+.question_result button {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  height: 8vh;
+  padding: 1vh;
+  margin-top: 5vh;
+  margin-bottom: 2.5vh;
+  border: 2px solid black;
+  font-weight: bold;
+  font-size: 2vw;
+}
+
+/* end page */
+
+.end_page {
+  /* display: none; */
+  margin: 0 auto;
+  width: 80%;
+}
+
+.end_page h2 {
+  text-align: center;
+  font-size: 4vw;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  padding: 0 4vw;
+}
+
+.end_page h3 {
+  margin-top: 0;
+  text-align: center;
+  font-size: 2vw;
+}
+
+.end_page button {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  height: 8vh;
+  padding: 1vh;
+  margin-top: 5vh;
+  margin-bottom: 2.5vh;
+  font-weight: bold;
+  font-size: 2vw;
+  border: 2px solid black;
+}
+
+/* general animation */
+
+button:hover, button:focus {
+  background-color: #000000;
+  color: #ffffff;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Javascript Quiz App</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <link href="grid.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header role="banner">
+      <div class="col-4">
+        <a href="index.html">
+          <img class="logo" src="https://pluralsight.imgix.net/paths/path-icons/nodejs-601628d09d.png" alt="Javascript logo" >
+        </a>
+      </div>
+      <div class="col-8">
+        <ul>
+          <li>Question: <span class="question_number">0</span> / 10</li>
+          <li>Score: <span class="score">0</span></li>
+        </ul>
+      </div>
+    </header>
+    <main role="main">
+      <div class="welcome_page">
+        <h1>Welcome to Javascript quiz app!</h1>
+        <button type="button" class="start_button">Let's begin</button>
+      </div>
+      <div class="question_form"></div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="Questions.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

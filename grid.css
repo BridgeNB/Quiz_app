@@ -1,0 +1,95 @@
+/* set col basics */
+.col-4, .col-6, .col-8 {
+  float: left;
+  padding-left: 1.0416%;
+  padding-right: 1.0416%
+}
+
+.col-4 {
+  width: 33.33%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-8 {
+  width: 66.66%;
+}
+
+@media screen and (max-width: 1190px) {
+    .question_form, .end_page, .welcome_page {
+        width: 80%;
+        margin-bottom: 100px
+    }
+}
+
+@media screen and (max-width: 768px) {
+  /* general */
+  .question_form, .end_page, .welcome_page {
+      width: 80%;
+      margin-top: 10vh;
+  }
+
+  button {
+    border: 1px;
+    border-radius: 1rem;
+  }
+
+  /* welcome page */
+
+  /* question */
+
+  /* question result page */
+  .question_form .next_button {
+    font-size: 3vw;
+  }
+
+  /* end_page */
+
+  .end_page h2 {
+    padding: 0 4vw;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  /* general */
+  .question_form, .end_page, .welcome_page {
+      width: 80%;
+      margin-top: 10vh;
+  }
+
+  button {
+    border: 1px;
+    border-radius: 1rem;
+    font-size: 3vw;
+  }
+
+  /* welcome page */
+  .welcome_page button {
+    padding-top: 20px;
+    font-size: 20px;
+  }
+
+  /* header */
+  header ul li {
+    font-size: 15px;
+  }
+
+  /* question */
+
+  div[class^=question-] button {
+    font-size: 20px;
+  }
+
+  /* question result page */
+  .question_form .next_button {
+    font-size: 3vw;
+  }
+
+  /* end_page */
+
+  .end_page h2 {
+    padding: 0 4vw;
+  }
+}
