@@ -2,17 +2,10 @@
 let nthQuestion = 0;
 let score = 0;
 
-function startQuiz() {
-  $('.welcome_page').on('click', '.start_button', function(event) {
-    $('.welcome_page').css("display", "none");
-    $('.question_form').css("display", "block");
-  });
-}
-
-function generateQuestion() {
+function generateCurrentQuestionHtml() {
   return `
   <div class="question-${nthQuestion}">
-    <form>
+    <form id="questionForm">
       <fieldset>
         <legend>${data[nthQuestion].question}</legend>
         <label class="choices">
@@ -38,8 +31,8 @@ function generateQuestion() {
   `;
 }
 
-function renderQuestions() {
-  $('.question_form').html(generateQuestion());
+function renderCurrentQuestion() {
+  $('.question_form').html(generateCurrentQuestionHtml());
 }
 
 function generateEndPage() {
@@ -54,21 +47,6 @@ function generateEndPage() {
 
 function renderEndPage() {
   $('.question_form').html(generateEndPage());
-}
-
-function submitAnswer() {
-  $('form').on('submit', function(event) {
-    event.preventDefault();
-    debugger;
-    let choice = $('input:checked').val();
-    let answer = `${data[nthQuestion].answer}`;
-    if (choice === answer) {
-      nextIfCorrectAnswer();
-    } else {
-      nextIfWrongAnswer();
-    }
-    upgradeQuestionNumber();
-  })
 }
 
 function upgradeScore() {
@@ -104,36 +82,49 @@ function nextIfWrongAnswer() {
     </div>`);
 }
 
-function nextQuestion() {
-  $('.question_form').on('click', '.next_button', function(event) {
-    if (nthQuestion < 3) {
-      renderQuestions();
-      submitAnswer();
-    } else {
-      renderEndPage();
-      restartQuiz();
-    }
-  })
+function startQuiz(event) {
+  renderCurrentQuestion();
+  $('.welcome_page').css("display", "none");
+  $('.question_form').css("display", "block");
 }
 
-function restartQuiz() {
-  $('.end_page').on('click', '.restart_button', function(event) {
-    score = -1;
-    nthQuestion = -1;
-    $('.welcome_page').css("display", "block");
-    $('.question_form').css("display", "none");
-    upgradeQuestionNumber();
-    upgradeScore();
-    renderQuestions();
-    // location.reload();
-  });
+function submitQuestion(event) {
+  event.preventDefault();
+  let choice = $('input:checked').val();
+  let answer = `${data[nthQuestion].answer}`;
+  if (choice === answer) {
+    nextIfCorrectAnswer();
+  } else {
+    nextIfWrongAnswer();
+  }
+  upgradeQuestionNumber();
+}
+
+function showNextQuestion(event) {
+  if (nthQuestion < 3) {
+    renderCurrentQuestion();
+    submitAnswer();
+  } else {
+    renderEndPage();
+  }
+}
+
+function restartQuiz(event) {
+  score = -1;
+  nthQuestion = -1;
+  $('.welcome_page').css("display", "block");
+  $('.question_form').css("display", "none");
+  upgradeQuestionNumber();
+  upgradeScore();
+  renderCurrentQuestion();
+  // location.reload();
 }
 
 function main() {
-  startQuiz();
-  renderQuestions();
-  submitAnswer();
-  nextQuestion();
+  $('.welcome_page').on('click', '.start_button', startQuiz);
+  $('.question_form').on('submit', '#questionForm', submitQuestion);
+  $('.question_form').on('click', '.next_button', showNextQuestion);
+  $('.question_form').on('click', '.end_page .restart_button', restartQuiz);
 }
 
 $(main);
