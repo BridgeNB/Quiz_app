@@ -12,9 +12,9 @@ function startQuiz() {
 function generateQuestion() {
   return `
   <div class="question-${nthQuestion}">
-    <h2>${data[nthQuestion].question}</h2>
     <form>
       <fieldset>
+        <legend>${data[nthQuestion].question}</legend>
         <label class="choices">
           <input type="radio" value="${data[nthQuestion].choices[0]}" name="answer" required>
           <span>${data[nthQuestion].choices[0]}</span>
@@ -59,6 +59,7 @@ function renderEndPage() {
 function submitAnswer() {
   $('form').on('submit', function(event) {
     event.preventDefault();
+    debugger;
     let choice = $('input:checked').val();
     let answer = `${data[nthQuestion].answer}`;
     if (choice === answer) {
@@ -105,7 +106,7 @@ function nextIfWrongAnswer() {
 
 function nextQuestion() {
   $('.question_form').on('click', '.next_button', function(event) {
-    if (nthQuestion < 10) {
+    if (nthQuestion < 3) {
       renderQuestions();
       submitAnswer();
     } else {
@@ -117,9 +118,14 @@ function nextQuestion() {
 
 function restartQuiz() {
   $('.end_page').on('click', '.restart_button', function(event) {
-    score = 0;
-    nthQuestion = 0;
-    location.reload();
+    score = -1;
+    nthQuestion = -1;
+    $('.welcome_page').css("display", "block");
+    $('.question_form').css("display", "none");
+    upgradeQuestionNumber();
+    upgradeScore();
+    renderQuestions();
+    // location.reload();
   });
 }
 

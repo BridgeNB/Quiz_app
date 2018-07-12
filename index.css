@@ -80,6 +80,10 @@ header ul {
 
 /* question form */
 
+main {
+  margin-top: 0;
+}
+
 main div {
   margin: 0 auto;
 }
@@ -87,7 +91,7 @@ main div {
 .question_form {
   display: none;
   width: 60%;
-  margin-top: 20vh;
+  margin-top: 0;
   border: 2px dashed black;
 }
 
@@ -99,12 +103,18 @@ div[class^=question-] {
   padding: 5vh;
 }
 
-div[class^=question-] h2 {
+/* div[class^=question-] h2 {
   text-align: center;
-}
+} */
 
 fieldset {
   border: none;
+}
+
+fieldset legend {
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
 }
 
 fieldset label {
